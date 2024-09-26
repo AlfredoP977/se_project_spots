@@ -10,9 +10,13 @@
 .card__content {
   display: flex;
   justify-content: space-between;
-  width: 413px;
+  width: 100%;
+  margin-top: 12px;
 }
 .card__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
   margin: 0;
 }
 .card__like-button {
@@ -23,5 +27,16 @@
   background-color: transparent;
   opacity: 40%;
 }
+.card__like-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
 @media and (max-width: 627px) {
+  .card {
+    width: 288px;
+    height: 288px;
+  }
+  .card__image {
+    height: 288px;
+  }
 }
