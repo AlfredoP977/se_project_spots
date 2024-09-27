@@ -49,6 +49,8 @@
   width: 107.34px;
   height: 16px;
   background-color: transparent;
+  padding: 0;
+  align-self: flex-start;
 }
 .profile__edit-btn:hover {
   opacity: 1;
@@ -95,6 +97,9 @@
   .profile__description {
     margin-bottom: 32px;
     max-width: 288px;
+  }
+  .profile__edit-btn {
+    align-self: center;
   }
   .profile__add-btn {
     margin: 0;
