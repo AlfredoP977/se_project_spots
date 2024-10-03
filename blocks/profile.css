@@ -47,17 +47,20 @@
   margin-top: auto;
   border-radius: 8px;
   border: none;
-  gap: 8px;
   opacity: 0.7;
   width: 107.34px;
   height: 16px;
   background-color: transparent;
   padding: 0;
   align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 .profile__edit-btn:hover {
   opacity: 1;
   cursor: pointer;
+  transition-duration: 1s;
 }
 .profile__add-btn {
   gap: 8px;
@@ -69,11 +72,24 @@
   width: 149px;
   align-self: flex-end;
   border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
+}
+.profile__add-btn_plus {
+  margin: 0;
+  align-self: center;
+}
+.profile__add-btn-div {
+  margin: 0;
+  align-self: center;
 }
 
 .profile__add-btn:hover {
   opacity: 0.8;
   cursor: pointer;
+  transition-duration: 1s;
 }
 @media screen and (max-width: 627px) {
   .profile {

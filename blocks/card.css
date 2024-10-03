@@ -36,6 +36,7 @@
   opacity: 1;
   cursor: pointer;
   background-image: url(/images/State=Hover.svg);
+  transition-duration: 1s;
 }
 @media screen and (max-width: 627px) {
   .card {
