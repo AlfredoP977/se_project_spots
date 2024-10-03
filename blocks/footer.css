@@ -1,10 +1,9 @@
 .footer {
   border-top: 1px rgb(33, 33, 33, 0.4) solid;
-  opacity: 0.7;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  font-family: poppins;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1;
@@ -17,6 +16,9 @@
 .footer__copy-right {
   text-align: center;
   margin: 0;
+}
+.footer__copy-right-icon {
+  opacity: 0.7;
 }
 @media screen and (max-width: 627px) {
   .footer {

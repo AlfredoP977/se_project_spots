@@ -25,6 +25,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
+  color: #212121;
 }
 
 .profile__description {
@@ -38,6 +39,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  color: #212121;
+  opacity: 0.7;
 }
 
 .profile__edit-btn {
@@ -56,6 +59,10 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
+  color: #212121;
+}
+.profile__edit-btn-writing {
+  margin: 0;
 }
 .profile__edit-btn:hover {
   opacity: 1;
@@ -76,12 +83,13 @@
   flex-direction: row;
   justify-content: center;
   padding: 0;
+  line-height: 16px;
 }
-.profile__add-btn_plus {
+.profile__add-btn-plus {
   margin: 0;
   align-self: center;
 }
-.profile__add-btn-div {
+.profile__add-btn-writing {
   margin: 0;
   align-self: center;
 }
@@ -106,7 +114,6 @@
     margin: 0 0 12px;
   }
   .profile__name {
-    font-weight: 500;
     font-size: 20px;
     margin: 0 0 6px;
     max-width: 288px;
