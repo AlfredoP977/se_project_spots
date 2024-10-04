@@ -70,6 +70,7 @@
   transition-duration: 1s;
 }
 .profile__add-btn {
+  font-weight: 500;
   gap: 8px;
   margin-left: auto;
   color: #fcf5e5;

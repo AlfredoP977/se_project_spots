@@ -22,7 +22,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 413px;
+  width: 390px;
 }
 .card__like-button {
   background-image: url(../images/State=Hover.svg);
