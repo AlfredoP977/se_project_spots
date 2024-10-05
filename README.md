@@ -20,3 +20,5 @@ This page currently displays the profile of Bessie Colemans. It also contains pi
 This webpage is deployed to gitHub Pages
 
 -Deployment Link: https://alfredop977.github.io/se_project_spots/
+
+-Video link: https://drive.google.com/file/d/1IwLrTkrUqBf54Swb64fDagD4ER-GuZb1/view?usp=sharing
