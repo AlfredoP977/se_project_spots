@@ -112,6 +112,7 @@
   margin: 0;
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 @media screen and (max-width: 740px) {
   .modal__container {

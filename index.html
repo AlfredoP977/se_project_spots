@@ -42,7 +42,19 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
+            <template id="card-template" >
             <li class="card">
+              <img
+                src=""
+                alt=""
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title"></h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <!--<li class="card">
               <img
                 src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
                 alt="Val Thorens"
@@ -107,7 +119,7 @@
                 <h2 class="card__title">Mountain house</h2>
                 <button type="button" class="card__like-button"></button>
               </div>
-            </li>
+            </li> -->
           </ul>
         </section>
       </main>
@@ -121,18 +133,18 @@
             <button type="submit" class="modal__close-btn"></button>
           </div>
           <form name="edit profile" class="modal__form">
-            <label for="name" class="modal__label"
+            <label for="profile-name-input" class="modal__label"
               >Name
               <input
-                id="name"
+                id="profile-name-input"
                 placeholder="Name"
                 type="text"
                 class="modal__input"
             /></label>
-            <label for="description" class="modal__label"
+            <label for="profile-description-input" class="modal__label"
               >Description
               <input
-                id="description"
+                id="profile-description-input"
                 placeholder="Description"
                 type="text"
                 class="modal__input"
