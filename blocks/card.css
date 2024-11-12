@@ -24,6 +24,37 @@
   overflow: hidden;
   width: 390px;
 }
+.delete_button {
+  background-image: url(../images/delete_btn.svg);
+  width: 32px;
+  height: 32px;
+  position: relative;
+  top: 42px;
+  left: 371px;
+  border: none;
+  background-color: transparent;
+}
+
+.delete_button:hover {
+  cursor: pointer;
+  background-image: url(../images/delete_hover.svg);
+  transition: 1s;
+}
+.card__liked-button {
+  background-image: url(../images/State=Liked.svg);
+  width: 23px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  opacity: 1;
+  padding: 0;
+}
+.card__liked-button:hover {
+  opacity: 0.4;
+  cursor: pointer;
+  transition-duration: 1s;
+}
+
 .card__like-button {
   background-image: url(../images/State=Hover.svg);
   width: 23px;

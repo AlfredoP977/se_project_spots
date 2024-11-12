@@ -44,44 +44,91 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
+                <button class="delete_button" id="deleteBtn"></button>
                 <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
-                  <button type="button" class="card__like-button"></button>
-                </div></li
-            ></template>
+                  <button
+                    type="button"
+                    class="card__like-button"
+                    id="likeButton"
+                  ></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copy-right">2023 © Spots</p>
       </footer>
-      <div class="modal" id="edit-Profile-Modal">
-        <div class="modal__container">
-          <div class="modal__header">
-            <h2 class="modal__title">Edit profile</h2>
-            <button type="submit" class="modal__close-btn"></button>
-          </div>
-          <form name="edit profile" class="modal__form">
-            <label for="profile-name-input" class="modal__label"
-              >Name
-              <input
-                id="profile-name-input"
-                placeholder="Name"
-                type="text"
-                class="modal__input"
-            /></label>
-            <label for="profile-description-input" class="modal__label"
-              >Description
-              <input
-                id="profile-description-input"
-                placeholder="Description"
-                type="text"
-                class="modal__input"
-            /></label>
-            <button type="submit" class="modal__submit-btn">Save</button>
-          </form>
+      <!-- profile modal -->
+      <div class="modal" id="edit-Modal">
+        <div class="modal__header">
+          <h2 class="modal__title">Edit profile</h2>
+          <button type="submit" class="modal__close-btn"></button>
         </div>
+        <form class="modal__form" id="edit-profile-form">
+          <label for="profile-name-input" class="modal__label"
+            >Name
+            <input
+              id="profile-name-input"
+              class="modal__input"
+              name="name"
+              placeholder="Type your name"
+              type="text"
+          /></label>
+          <label class="modal__label" for="profile-description-input"
+            >Description
+            <input
+              id="profile-description-input"
+              class="modal__input"
+              name="description"
+              placeholder="Description"
+              type="text"
+          /></label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+      <!-- nEW POST modal -->
+      <div class="modal" id="add-card-modal">
+        <div class="modal__header">
+          <h2 class="modal__title">New Post</h2>
+          <button type="submit" class="modal__close-btn"></button>
+        </div>
+        <form name="new post" class="modal__form" id="add-card-form">
+          <label for="add-card-link-input" class="modal__label"
+            >Image link
+            <input
+              id="add-card-link-input"
+              placeholder="Paste a link to the picture"
+              type="url"
+              class="modal__input"
+              name="link"
+          /></label>
+          <label for="add-card-name-input" class="modal__label"
+            >Caption
+            <input
+              id="add-card-name-input"
+              placeholder="Type your caption"
+              name="name"
+              type="text"
+              class="modal__input"
+          /></label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- preview modal -->
+    <div class="modal" id="preview-modal">
+      <div class="modal__content modal__content_type_preview">
+        <button
+          class="modal__close-btn modal__close-btn-preview"
+          aria-label="close modal"
+          type="button"
+        ></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption">1111111111111111111</p>
       </div>
     </div>
     <script defer src="script/index.js"></script>
