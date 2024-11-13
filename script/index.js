@@ -54,6 +54,9 @@ const cardsList = document.querySelector(".cards__list");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageElement = document.querySelector(".modal__image");
 const previewModalcaptionElement = document.querySelector(".modal__caption");
+const modalImageCloseButton = document.querySelector(
+  ".modal__close-btn-preview"
+);
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
@@ -98,8 +101,12 @@ function getCardElement(data) {
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
     previewModalImageElement.src = data.link;
-    previewModalImageElement.alt = data.name;
-    previewModalcaptionElement.text = data.name;
+    previewModalImageElement.textContent = data.name;
+    previewModalcaptionElement.textContent = data.name;
+  });
+
+  modalImageCloseButton.addEventListener("click", () => {
+    closeModal(previewModal);
   });
 
   return cardElement;
