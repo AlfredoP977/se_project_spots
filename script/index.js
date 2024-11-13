@@ -88,11 +88,8 @@ function getCardElement(data) {
 
   const deleteBtn = cardElement.querySelector("#deleteBtn");
   deleteBtn.addEventListener("click", () => {
-    const index = initialCards.findIndex(
-      (card) => card.name === data.name && card.link === data.link
-    );
-    if (index > -1) {
-      initialCards.splice(index, 1);
+    {
+      initialCards.splice();
       cardElement.remove();
     }
   });
