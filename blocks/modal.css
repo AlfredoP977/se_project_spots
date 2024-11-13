@@ -1,4 +1,5 @@
 .modal {
+  transition: visibility 0.5s, opacity 0.2s ease-in;
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   top: 0;
@@ -7,9 +8,11 @@
   right: 0;
   position: fixed;
   visibility: hidden;
+  opacity: 0;
 }
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 .modal__container {
   position: fixed;
@@ -17,7 +20,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 408px;
   max-width: 730px;
   background-color: #ffffff;
   display: flex;
@@ -26,6 +28,7 @@
   flex-direction: column;
   border-radius: 8px;
 }
+
 .modal__content_type_preview {
   padding: 0;
   height: auto;
@@ -33,16 +36,19 @@
   background-color: transparent;
   flex-direction: column;
 }
+
 .modal__image {
   width: 100%;
   max-width: 80vw;
   max-height: 80vh;
   border-radius: 8px;
 }
+
 .modal_image_header {
   display: flex;
   flex-direction: row-reverse;
 }
+
 .modal__caption {
   background-color: rgba(33, 33, 33, 1);
   padding: 8px 4px;
@@ -76,7 +82,7 @@
   height: 40px;
   width: 40px;
   padding: 0;
-  background-image: url(../images/Property\ 1=Variant2.svg);
+  background-image: url(../images/Close_btn.svg);
   border: none;
   background-color: transparent;
   background-size: cover;
@@ -87,7 +93,7 @@
   opacity: 1;
 }
 .modal__close-btn-preview {
-  background-image: url(../images/Close\ Icon\ light.svg);
+  background-image: url(../images/Close_Icon_light.svg);
 }
 .modal__form {
   display: flex;
@@ -120,7 +126,7 @@
   height: 48px;
   border-radius: 8px;
   padding: 0;
-  border: 1;
+  border: 1px solid gray;
   border-color: rgb(33, 33, 33, 0.4);
   padding-left: 16px;
 }
@@ -148,7 +154,6 @@
 @media screen and (max-width: 740px) {
   .modal__container {
     width: 300px;
-    height: 336px;
     align-self: center;
   }
   .modal__form {
@@ -170,5 +175,15 @@
   }
   .modal__submit-btn {
     width: 100%;
+  }
+  .modal__caption {
+    line-height: 19.2px;
+    font-size: 16px;
+  }
+  .modal_image_header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
   }
 }
