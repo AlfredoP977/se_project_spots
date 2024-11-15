@@ -44,7 +44,7 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <button class="delete_button" id="deleteBtn"></button>
+                <button class="card__delete-button" id="deleteBtn"></button>
                 <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
@@ -64,7 +64,7 @@
       </footer>
       <!-- profile modal -->
       <div class="modal" id="edit-profile-modal">
-        <div class="modal__container">
+        <div class="modal__content">
           <div class="modal__header">
             <h2 class="modal__title">Edit profile</h2>
             <button type="button" class="modal__close-btn"></button>
@@ -94,7 +94,7 @@
       </div>
       <!-- nEW POST modal -->
       <div class="modal" id="add-card-modal">
-        <div class="modal__container">
+        <div class="modal__content">
           <div class="modal__header">
             <h2 class="modal__title">New Post</h2>
             <button type="button" class="modal__close-btn"></button>
@@ -125,8 +125,8 @@
     </div>
     <!-- preview modal -->
     <div class="modal" id="preview-modal">
-      <div class="modal__container modal__content_type_preview">
-        <div class="modal_image_header">
+      <div class="modal__content modal__content_type_preview">
+        <div class="modal__content_header_type-preview">
           <button
             class="modal__close-btn modal__close-btn-preview"
             aria-label="close modal"

@@ -82,10 +82,10 @@ function getCardElement(data) {
   cardLinkEl.alt = data.name;
 
   const cardlikeBtn = cardElement.querySelector("#likeButton");
-
+  //card__like-button_active does not overwrite card__like-button this is the only way I found it to work.
   cardlikeBtn.addEventListener("click", () => {
+    cardlikeBtn.classList.toggle("card__like-button_active");
     cardlikeBtn.classList.toggle("card__like-button");
-    cardlikeBtn.classList.toggle("card__liked-button");
   });
 
   const deleteBtn = cardElement.querySelector("#deleteBtn");
@@ -98,6 +98,7 @@ function getCardElement(data) {
   cardLinkEl.addEventListener("click", () => {
     openModal(previewModal);
     previewModalImageElement.src = data.link;
+    previewModalImageElement.alt = data.name;
     previewModalCaptionElement.textContent = data.name;
   });
 
