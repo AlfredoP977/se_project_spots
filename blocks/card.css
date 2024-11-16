@@ -41,20 +41,6 @@
   background-image: url(../images/delete_hover.svg);
   transition: 1s;
 }
-.card__like-button_active {
-  background-image: url(../images/Liked_Icon.svg);
-  width: 23px;
-  height: 20px;
-  border: none;
-  background-color: transparent;
-  opacity: 1;
-  padding: 0;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-.card__like-button_active:hover {
-  opacity: 0.4;
-}
 
 .card__like-button {
   background-image: url(../images/Like_Icon.svg);
@@ -72,6 +58,21 @@
 }
 .card__like-button:hover {
   opacity: 1;
+}
+
+.card__like-button_active {
+  background-image: url(../images/Liked_Icon.svg);
+  width: 23px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  opacity: 1;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.card__like-button_active:hover {
+  opacity: 0.4;
 }
 @media screen and (max-width: 627px) {
   .card {

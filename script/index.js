@@ -85,7 +85,6 @@ function getCardElement(data) {
   //card__like-button_active does not overwrite card__like-button this is the only way I found it to work.
   cardlikeBtn.addEventListener("click", () => {
     cardlikeBtn.classList.toggle("card__like-button_active");
-    cardlikeBtn.classList.toggle("card__like-button");
   });
 
   const deleteBtn = cardElement.querySelector("#deleteBtn");
