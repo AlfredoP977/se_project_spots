@@ -82,7 +82,7 @@ function getCardElement(data) {
   cardLinkEl.alt = data.name;
 
   const cardlikeBtn = cardElement.querySelector("#likeButton");
-  //card__like-button_active does not overwrite card__like-button this is the only way I found it to work.
+  //card__like-button_active
   cardlikeBtn.addEventListener("click", () => {
     cardlikeBtn.classList.toggle("card__like-button_active");
   });
