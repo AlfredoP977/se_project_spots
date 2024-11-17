@@ -1,5 +1,5 @@
 .modal {
-  transition: visibility 0.5s, opacity 0.2s ease-in;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   top: 0;
