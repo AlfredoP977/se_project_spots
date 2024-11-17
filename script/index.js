@@ -61,8 +61,8 @@ const modalImageCloseButton = document.querySelector(
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
-  const inputvalues = { name: cardNameInput.value, link: cardLinkInput.value };
-  const cardElement = getCardElement(inputvalues);
+  const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
+  const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(cardModal);
   evt.target.reset();
@@ -100,19 +100,11 @@ function getCardElement(data) {
     previewModalImageElement.alt = data.name;
     previewModalCaptionElement.textContent = data.name;
   });
-
-  modalImageCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
-  });
-
   return cardElement;
 }
 
 function openModal(modal) {
-  // modal is ARGUMENT
   modal.classList.add("modal_opened");
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
 }
 
 function closeModal(modal) {
@@ -125,9 +117,14 @@ function handleEditFormSubmit(evt) {
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
 }
+modalImageCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 profileEditButton.addEventListener("click", () => {
-  openModal(editModal); // edit modal type should be ELEMENT
+  openModal(editModal);
+  editModalNameInput.value = profileName.textContent;
+  editModalDescriptionInput.value = profileDescription.textContent;
 });
 
 modalEditProfileCloseButton.addEventListener("click", () => {
