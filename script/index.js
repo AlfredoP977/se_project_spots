@@ -1,3 +1,4 @@
+//todo pass validation items
 const initialCards = [
   {
     name: "Val Thorens",
