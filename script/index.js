@@ -59,6 +59,7 @@ const previewModalCaptionElement = document.querySelector(".modal__caption");
 const modalImageCloseButton = document.querySelector(
   ".modal__close-btn-preview"
 );
+const overlayModalClose = document.querySelector(".modal");
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
@@ -106,12 +107,35 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscapeKey);
+  modal.addEventListener("click", handleOverlayClick);
+
+  if (modal === editProfileModal) {
+    resetValidation(editFormElement, settings);
+    editModalNameInput.value = profileName.textContent;
+    editModalDescriptionInput.value = profileDescription.textContent;
+  }
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscapeKey);
+  modal.removeEventListener("click", handleOverlayClick);
+}
+function handleOverlayClick(event) {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(event.target);
+  }
 }
 
+function handleEscapeKey(event) {
+  if (event.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    if (modal) {
+      closeModal(modal);
+    }
+  }
+}
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;

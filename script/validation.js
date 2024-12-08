@@ -70,6 +70,17 @@ const enableValidation = (config) => {
   });
 };
 
+const resetValidation = (formEl, config) => {
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  inputList.forEach((inputEl) => {
+    const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
+    errorMsgEl.textContent = "";
+    inputEl.classList.remove(config.inputErrorClass);
+  });
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
+};
+
 enableValidation(settings);
 
 // const showInputError = (formElement, inputElement, errorMessage) => {
