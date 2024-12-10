@@ -138,9 +138,9 @@ function handleEditFormSubmit(evt) {
   closeModal(editModal);
   resetValidation(editFormElement, settings);
 }
-modalImageCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
-});
+// modalImageCloseButton.addEventListener("click", () => {
+//   closeModal(previewModal);
+// });
 
 profileEditButton.addEventListener("click", () => {
   openModal(editModal);
