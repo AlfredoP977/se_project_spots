@@ -156,7 +156,7 @@
   border: none;
   cursor: pointer;
 }
-.modal__button_inactive {
+.modal__submit-btn_inactive {
   opacity: 0.5;
 }
 .modal__error {
