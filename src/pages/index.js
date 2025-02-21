@@ -1,5 +1,10 @@
 //todo pass validation items
-import { enableValidation, settings, resetValidation } from "./validation";
+import "./index.css";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+} from "../script/validation.js";
 const initialCards = [
   {
     name: "Val Thorens",

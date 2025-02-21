@@ -6,7 +6,6 @@
     <meta name="description" content="Spots" />
     <meta name="author" content="Software Engineer" />
     <meta name="keywords" content="HTML, CSS" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <title>spots</title>
@@ -14,12 +13,12 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="images/Logo.svg" alt="spot logo" class="header__logo" />
+        <img src="./src/images/Logo.svg" alt="spot logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            src="images/avatar.jpg"
+            src="./src/images/avatar.jpg"
             alt="Bessie Coleman"
             class="profile__avatar"
           />
@@ -27,14 +26,14 @@
             <h1 class="profile__name">Bessie Colemans</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="images/Pencil.svg" alt="pencil icon" />
+              <img src="./src/images/Pencil.svg" alt="pencil icon" />
               <span class="profile__edit-btn-writing">Edit Profile</span>
             </button>
           </div>
           <button type="button" class="profile__add-btn">
             <img
               class="profile__add-btn-plus"
-              src="images/plus.svg"
+              src="./src/images/plus.svg"
               alt="plus icon"
             />
             <span class="profile__add-btn-writing">New Post</span>
@@ -162,6 +161,5 @@
         <p class="modal__caption"></p>
       </div>
     </div>
-    <script type="module" src="script/index.js"></script>
   </body>
 </html>
