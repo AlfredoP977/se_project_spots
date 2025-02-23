@@ -10,6 +10,10 @@
   height: 190px;
   border-radius: 8px;
 }
+.profile__avatar-btn {
+  opacity: 0;
+  cursor: pointer;
+}
 .profile__column {
   display: flex;
   flex-direction: column;
