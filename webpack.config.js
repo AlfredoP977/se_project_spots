@@ -49,6 +49,18 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|webp|gif|woff(2)?|eot|ttf|otf)$/,
         type: "asset/resource",
       },
+      {
+        test: /\.ico$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images/", // Adjust this path if needed
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

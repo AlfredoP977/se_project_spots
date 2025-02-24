@@ -6,37 +6,48 @@
     <meta name="description" content="Spots" />
     <meta name="author" content="Software Engineer" />
     <meta name="keywords" content="HTML, CSS" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 
     <title>spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/Logo.svg" alt="spot logo" class="header__logo" />
+        <img src="<%=require('./images/logo.svg')%>" alt="Logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
           <button class="profile__avatar-btn">
             <img
-              src="./images/avatar.jpg"
+              src="<%=require('./images/avatar.jpg')%>"
               alt="Bessie Coleman"
               class="profile__avatar"
             />
+            <span class="profile__avatar-btn-description">
+              <img
+                src="<%=require('./images/Pencil_light.svg')%>"
+                alt="pencil icon"
+                class="profile__avatar-Pencil"
+              />
+              Edit Avatar</span
+            >
           </button>
 
           <div class="profile__column">
             <h1 class="profile__name">Bessie Colemans</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/Pencil.svg" alt="pencil icon" />
+              <img
+                src="<%=require('./images/Pencil.svg')%>"
+                alt="pencil icon"
+              />
               <span class="profile__edit-btn-writing">Edit Profile</span>
             </button>
           </div>
           <button type="button" class="profile__add-btn">
             <img
               class="profile__add-btn-plus"
-              src="./src/images/plus.svg"
+              src="<%=require('./images/plus.svg')%>"
               alt="plus icon"
             />
             <span class="profile__add-btn-writing">New Post</span>
@@ -162,6 +173,49 @@
           <img class="modal__image" src="" alt="" />
         </div>
         <p class="modal__caption"></p>
+      </div>
+    </div>
+    <!-- Avatar modal -->
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h2 class="modal__title">Edit avatar</h2>
+          <button type="button" class="modal__close-btn"></button>
+        </div>
+        <form class="modal__form" id="edit-avatar-form" novalidate>
+          <label for="avatar-input" class="modal__label"
+            >Avatar
+            <input
+            id="profile-avatar-input"
+            placeholder="Paste a link to the picture"
+            type="url"
+            class="modal__input"
+            name="avatar"
+            required /></span
+          >
+          <span id="profile-avatar-input-error" class="modal__error"></span
+            ></label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- deleteCard modal -->
+    <div class="modal" id="deleteCard-modal">
+      <div class="modal__content modal__content_type_preview">
+        <div class="modal__close-container">
+          <button
+            class="modal__close-btn modal__close-btn-preview"
+            aria-label="close modal"
+            type="button"
+          ></button>
+          <div class="modal__content-deleteCard ">
+            <h2 class="modal__title modal__title-deleteCard ">Are you sure you want to delete image?</h2>
+            <form class="modal__form modal__form-deleteCard" id="deleteCard-form" novalidate>
+              <button class="modal__deleteCard-btn">Delete</button>
+              <button class="modal__cancelDeleteCard-btn">Cancel</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </body>

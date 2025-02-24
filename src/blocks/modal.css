@@ -10,6 +10,13 @@
   visibility: hidden;
   opacity: 0;
 }
+.modal__deleteCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 .modal_opened {
   visibility: visible;
   opacity: 1;
@@ -27,6 +34,7 @@
   justify-self: center;
   flex-direction: column;
   border-radius: 8px;
+  padding: 20px;
 }
 
 .modal__content_type_preview {
@@ -35,6 +43,13 @@
   max-width: fit-content;
   background-color: transparent;
   flex-direction: column;
+}
+.modal__content-deleteCard {
+  flex-direction: row;
+  max-width: 630px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 0;
 }
 
 .modal__image {
@@ -78,6 +93,13 @@
   font-size: 20px;
   align-self: center;
   margin: 0;
+  text-align: center;
+}
+.modal__title-deleteCard {
+  padding: 32px 30px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .modal__close-btn {
@@ -97,12 +119,50 @@
 .modal__close-btn-preview {
   background-image: url(../images/Close_Icon_light.svg);
 }
+.modal__close-btn-deleteCard {
+  background-image: url(../images/Close_Icon_light.svg);
+}
 .modal__form {
   display: flex;
   flex-direction: column;
   max-width: 630px;
   margin: 0;
   padding: 0px 50px 32px;
+}
+.modal__form-deleteCard {
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+}
+.modal__deleteCard-btn {
+  background-color: rgba(255, 101, 101, 1);
+  height: 52px;
+  width: 156px;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 149px;
+  margin-bottom: 32px;
+}
+.modal__deleteCard-btn:hover {
+  background-color: rgba(255, 51, 51, 1);
+  cursor: pointer;
+}
+.modal__cancelDeleteCard-btn {
+  height: 52px;
+  width: 156px;
+  border-radius: 8px;
+  padding: 0;
+  margin-top: 0;
+  margin-right: 149px;
+  margin-bottom: 32px;
+}
+.modal__cancelDeleteCard-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+  color: #ffffff;
+  cursor: pointer;
 }
 .modal__label {
   font-family: Poppins, Arial, Helvetica, sans-serif;
