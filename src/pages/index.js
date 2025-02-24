@@ -54,7 +54,7 @@ const deleteCardButton = deleteCardModal.querySelector(
 const cancelDeleteCardButton = deleteCardModal.querySelector(
   ".modal__cancelDeleteCard-btn"
 );
-const deleteCardForm = avatarModal.querySelector(".modal__form");
+// const deleteCardForm = avatarModal.querySelector(".modal__form");
 //avatarModal
 const avatarModal = document.querySelector("#edit-avatar-modal");
 const avatarModelButton = document.querySelector(".profile__avatar-btn");
@@ -154,19 +154,39 @@ function getCardElement(data) {
     cardlikeBtn.classList.toggle("card__like-button_active");
   });
 
+  // const deleteBtn = cardElement.querySelector("#deleteBtn");
+  // deleteBtn.addEventListener("click", () => {
+  //   openModal(deleteCardModal);
+
+  //   // Set up the deleteCardButton event listener for this specific card
+  //   deleteCardButton.addEventListener(
+  //     "click",
+  //     function handleDeleteCard() {
+  //       cardElement.remove();
+  //       closeModal(deleteCardModal);
+
+  //       // Remove the event listener to avoid memory leaks
+  //       deleteCardButton.removeEventListener("click", handleDeleteCard);
+  //     },
+  //     { once: true } // This ensures the event listener is called only once
+  //   );
+  // });
   const deleteBtn = cardElement.querySelector("#deleteBtn");
   deleteBtn.addEventListener("click", () => {
-    {
-      // cardElement.remove();
-      openModal(deleteCardModal);
-    }
-  });
+    cardElement.remove();
+    closeModal(deleteCardModal);
+    // deleteCardButton.addEventListener("click", () => {
+    //   cardElement.remove();
+    //   closeModal(deleteCardModal);
+    //   deleteCardButton.removeEventListener;
+    // });
 
-  deleteCardButton.addEventListener("click", () => {
-    {
-      cardElement.remove();
-      closeModal(deleteCardModal);
-    }
+    cancelDeleteCardButton.addEventListener("click", () => {
+      {
+        closeModal(deleteCardModal);
+        cancelDeleteCardButton.removeEventListener;
+      }
+    });
   });
 
   cancelDeleteCardButton.addEventListener("click", () => {
