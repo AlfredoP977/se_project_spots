@@ -54,7 +54,7 @@ const deleteCardButton = deleteCardModal.querySelector(
 const cancelDeleteCardButton = deleteCardModal.querySelector(
   ".modal__cancelDeleteCard-btn"
 );
-// const deleteCardForm = avatarModal.querySelector(".modal__form");
+const deleteCardForm = deleteCardModal.querySelector(".modal__form");
 //avatarModal
 const avatarModal = document.querySelector("#edit-avatar-modal");
 const avatarModelButton = document.querySelector(".profile__avatar-btn");
@@ -135,6 +135,17 @@ function handleEditFormSubmit(evt) {
     .catch(console.error);
 }
 
+function handleDeleteCardSubmit(evt) {
+  evt.preventDefault(selectedCardId);
+  api
+    .deleteCard()
+    .then((selectedCard) => {
+      remove(selectedCard);
+      closeModal(deleteCardModal);
+    })
+    .catch(console.error);
+}
+
 function getCardElement(data) {
   console.log(data);
   const cardElement = cardTemplate.content
@@ -154,39 +165,23 @@ function getCardElement(data) {
     cardlikeBtn.classList.toggle("card__like-button_active");
   });
 
-  // const deleteBtn = cardElement.querySelector("#deleteBtn");
-  // deleteBtn.addEventListener("click", () => {
-  //   openModal(deleteCardModal);
-
-  //   // Set up the deleteCardButton event listener for this specific card
-  //   deleteCardButton.addEventListener(
-  //     "click",
-  //     function handleDeleteCard() {
-  //       cardElement.remove();
-  //       closeModal(deleteCardModal);
-
-  //       // Remove the event listener to avoid memory leaks
-  //       deleteCardButton.removeEventListener("click", handleDeleteCard);
-  //     },
-  //     { once: true } // This ensures the event listener is called only once
-  //   );
-  // });
+  let selectedCard, selectedCardId;
   const deleteBtn = cardElement.querySelector("#deleteBtn");
-  deleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-    closeModal(deleteCardModal);
-    // deleteCardButton.addEventListener("click", () => {
-    //   cardElement.remove();
-    //   closeModal(deleteCardModal);
-    //   deleteCardButton.removeEventListener;
-    // });
 
-    cancelDeleteCardButton.addEventListener("click", () => {
-      {
-        closeModal(deleteCardModal);
-        cancelDeleteCardButton.removeEventListener;
-      }
-    });
+  deleteBtn.addEventListener("click", (evt) =>
+    handleDeleteCard(cardElement, data._id)
+  );
+  function handleDeleteCard(cardElement, cardId) {
+    selectedCard = cardElement;
+    selectedCardId = cardId;
+    console.log(cardId);
+    openModal(deleteCardModal);
+  }
+  cancelDeleteCardButton.addEventListener("click", () => {
+    {
+      closeModal(deleteCardModal);
+      cancelDeleteCardButton.removeEventListener;
+    }
   });
 
   cancelDeleteCardButton.addEventListener("click", () => {
@@ -203,6 +198,31 @@ function getCardElement(data) {
   });
   return cardElement;
 }
+
+// let selectedCard, selectedCardId;
+
+// function getCardElement(data) {{
+//   deleteButton.addEventListener(
+//     "click",
+//     (evt) => handleDeleteCard(cardElement, data)
+//   );
+//   function handleDeleteCard(cardElement, data) {
+//     selectedCard = ___;   // Assign the card element to selectedCard
+//     selectedCardId = ___; // Assign the card's ID to selectedCardId
+//     // open the delete confirmation modal
+//     openModal(deleteCardModal);
+//   }
+//   function handleDeleteSubmit() => {
+//     api
+//       .removeCard(___) // pass the ID the the api function
+//       .then(() => {
+//         // remove the card from the DOM
+//         // close the modal
+//       })
+//       .catch(console.error);
+//   };
+//   deleteForm.addEventListener("submit", handleDeleteSubmit);
+// }}
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -257,6 +277,6 @@ cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 avatarForm.addEventListener("submit", handleAvatarFormSubmit);
 
-// deleteCardForm.addEventListener("submit", handleAvatarFormSubmit);
+deleteCardForm.addEventListener("submit", handleDeleteCardSubmit);
 
 enableValidation(settings);
