@@ -140,7 +140,7 @@ function handleDeleteCardSubmit(evt) {
   api
     .deleteCard()
     .then((selectedCard) => {
-      remove(selectedCard);
+      cardElement.remove(selectedCard);
       closeModal(deleteCardModal);
     })
     .catch(console.error);
