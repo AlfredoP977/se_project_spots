@@ -51,9 +51,11 @@ const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
   // todo intial states check input variable
+  console.log("buttonElement", buttonElement);
+  console.log("formEl", formEl);
+  console.log("config.submitButtonSelector", config.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, config);
   // console.log(inputList);
-  console.log(buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {

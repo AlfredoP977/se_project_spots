@@ -1,5 +1,7 @@
 // utils/Api.js
 
+import { data } from "autoprefixer";
+
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -71,9 +73,41 @@ class Api {
     });
   }
 
+  editCardsInfo({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      // Send the data in the body as a JSON string.
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+      // handle the response
+    });
+  }
+
   deleteCard(id) {
-    return fetch(`${this._baseUrl}cards/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+  changeLikeStatus(id, isLiked) {
+    console.log(isLiked);
+    console.log(id);
+    console.log(data);
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
