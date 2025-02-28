@@ -1,19 +1,15 @@
 ## Spots
 
 ## Description
-
-This page currently displays the profile of Bessie Colemans. It also contains pictures of random places. The lay out of the site chages as soon and it goes lower than 627px width. When that happends the size of the images change and the site becomes sutable for moble view. There are also buttons the will be used to edit and post.
+Implementing api to conect the webpage to a server. 
 
 ## tech stacks
 
--HTML
--CSS
--Resposive design
--Cursor Pointer
--Hover States
--Displaying flex and grid
--Buttons
--Media Screens settings
+-npm
+-webpack
+-api
+-time delays
+-GET Patch Delete POST
 
 ## Deployment
 

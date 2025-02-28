@@ -1,3 +1,4 @@
+//imports
 import "./index.css";
 import {
   enableValidation,
@@ -8,6 +9,7 @@ import {
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
 
+//api
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -82,7 +84,7 @@ const previewModalCaptionElement = document.querySelector(".modal__caption");
 const modalImageCloseButton = document.querySelector(
   ".modal__close-btn-preview"
 );
-
+// functions
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
@@ -99,6 +101,7 @@ function handleAddCardFormSubmit(evt) {
       setButtonText(submitbtn, false, "Save", "Saving...");
       closeModal(cardModal);
       evt.target.reset();
+      window.location.reload();
     });
 }
 
@@ -145,7 +148,7 @@ function handleEditFormSubmit(evt) {
       setButtonText(submitbtn, false, "Save", "Saving...")
     );
 }
-//implement loading text to all form sumition
+
 let selectedCard, selectedCardId;
 function handleDeleteCard(cardElement, cardId) {
   selectedCard = cardElement;
@@ -171,9 +174,6 @@ function handleDeleteCardSubmit(evt) {
     });
 }
 function handleLike(evt, id) {
-  // evt.target.classList.toggle("card__like-button_active");
-  // check if liked
-
   console.log(id);
   const isLiked = evt.target.classList.contains("card__like-button_active");
   api
@@ -183,7 +183,7 @@ function handleLike(evt, id) {
     })
     .catch(console.error);
 }
-
+//get card function
 function getCardElement(data) {
   console.log(data);
   const cardElement = cardTemplate.content
@@ -196,8 +196,13 @@ function getCardElement(data) {
   const cardLinkEl = cardElement.querySelector(".card__image");
   cardLinkEl.src = data.link;
   cardLinkEl.alt = data.name;
-
+  const likeSatus = data.isLiked;
+  console.log(likeSatus);
+  console.log(data.isLiked);
   const cardlikeBtn = cardElement.querySelector("#likeButton");
+  if (likeSatus === true) {
+    cardlikeBtn.classList.add("card__like-button_active");
+  }
 
   cardlikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
 
@@ -215,31 +220,6 @@ function getCardElement(data) {
   });
   return cardElement;
 }
-
-// let selectedCard, selectedCardId;
-
-// function getCardElement(data) {{
-//   deleteButton.addEventListener(
-//     "click",
-//     (evt) => handleDeleteCard(cardElement, data)
-//   );
-//   function handleDeleteCard(cardElement, data) {
-//     selectedCard = ___;   // Assign the card element to selectedCard
-//     selectedCardId = ___; // Assign the card's ID to selectedCardId
-//     // open the delete confirmation modal
-//     openModal(deleteCardModal);
-//   }
-//   function handleDeleteSubmit() => {
-//     api
-//       .removeCard(___) // pass the ID the the api function
-//       .then(() => {
-//         // remove the card from the DOM
-//         // close the modal
-//       })
-//       .catch(console.error);
-//   };
-//   deleteForm.addEventListener("submit", handleDeleteSubmit);
-// }}
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -267,6 +247,7 @@ function handleEscapeKey(event) {
   }
 }
 
+//listeners
 profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalNameInput.value = profileName.textContent;
@@ -305,4 +286,5 @@ cancelDeleteCardButton.addEventListener("click", () => {
   closeModal(deleteCardModal);
 });
 
+//validation
 enableValidation(settings);
