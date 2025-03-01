@@ -278,10 +278,10 @@ avatarForm.addEventListener("submit", handleAvatarFormSubmit);
 deleteCardForm.addEventListener("submit", handleDeleteCardSubmit);
 
 cancelDeleteCardButton.addEventListener("click", () => {
-  const submitbtn = cancelDeleteCardButton;
-  submitbtn.textContent = "Canceling...";
+  const cancelbtn = cancelDeleteCardButton;
+  cancelbtn.textContent = "Canceling...";
   setTimeout(() => {
-    submitbtn.textContent = "Cancel";
+    cancelbtn.textContent = "Cancel";
   }, 1000);
   closeModal(deleteCardModal);
 });

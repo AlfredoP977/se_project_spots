@@ -18,7 +18,7 @@
   border-radius: 8px;
   cursor: pointer;
   border: none;
-  padding: none;
+  padding: 0;
   background: none;
   position: relative;
 }
@@ -144,13 +144,17 @@
     margin: 0 0 12px;
     position: relative;
   }
+  .profile__avatar-btn {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+  }
 
   .profile__avatar-btn-description {
     color: transparent;
     position: absolute;
     top: 59.44px;
-    left: 52px;
-    right: 4.66px;
+    left: 50px;
     bottom: 4.66px;
   }
   .profile__avatar-Pencil {
