@@ -21,7 +21,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then(this._handleServerRes(res)); // copy to all
+    }).then((res) => this._handleServerRes(res)); // copy to all
   }
 
   // create another method, getUserInfo (diff base url)
@@ -29,12 +29,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then((res) => this._handleServerRes(res));
   }
 
   // todo implemnt POST / cards
@@ -48,13 +43,7 @@ class Api {
         name,
         about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-      // handle the response
-    });
+    }).then((res) => this._handleServerRes(res));
   }
 
   editAvatarUserInfo({ avatar }) {
@@ -65,13 +54,7 @@ class Api {
       body: JSON.stringify({
         avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-      // handle the response
-    });
+    }).then((res) => this._handleServerRes(res));
   }
 
   editCardsInfo({ name, link }) {
@@ -83,25 +66,14 @@ class Api {
         name,
         link,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-      // handle the response
-    });
+    }).then((res) => this._handleServerRes(res));
   }
 
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then((res) => this._handleServerRes(res));
   }
   changeLikeStatus(id, isLiked) {
     console.log(isLiked);
@@ -110,12 +82,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then((res) => this._handleServerRes(res));
   }
 }
 // export the class
