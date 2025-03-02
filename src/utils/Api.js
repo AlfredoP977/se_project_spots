@@ -7,6 +7,12 @@ class Api {
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
+  _handleServerRes(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    Promise.reject(`Error: ${res.status}`);
+  }
 
   getAppInfo() {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
@@ -15,17 +21,12 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._handleServerRes(res)); // copy to all
   }
 
   // create another method, getUserInfo (diff base url)
   getUserInfo() {
-    return fetch(`https://around-api.en.tripleten-services.com/v1/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
     }).then((res) => {

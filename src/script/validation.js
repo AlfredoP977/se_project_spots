@@ -1,10 +1,11 @@
-export const settings = {
+export const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
   inactiveButtonClass: "modal__submit-btn_inactive",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
+  savedData: {},
 };
 
 const showInputError = (formEl, inputEl, errorMsg, config) => {
@@ -35,8 +36,7 @@ const hasInvalidInput = (inputList) => {
     return !inputEl.validity.valid;
   });
 };
-
-export const toggleButtonState = (inputList, buttonEl, config) => {
+const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
     buttonEl.disabled = true;
     buttonEl.classList.add(config.inactiveButtonClass);
@@ -51,12 +51,14 @@ const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
   // todo intial states check input variable
-  console.log("buttonElement", buttonElement);
-  console.log("formEl", formEl);
-  console.log("config.submitButtonSelector", config.submitButtonSelector);
+  // console.log("buttonElement", buttonElement);
+  // console.log("formEl", formEl);
+  // console.log("config.submitButtonSelector", config.submitButtonSelector);
+  if (inputList.length === 0) {
+    return; // Ignore forms with only buttons and no input elements
+  }
   toggleButtonState(inputList, buttonElement, config);
-  // console.log(inputList);
-
+  console.log(inputList);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);

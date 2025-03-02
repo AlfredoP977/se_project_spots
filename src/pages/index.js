@@ -2,9 +2,8 @@
 import "./index.css";
 import {
   enableValidation,
-  settings,
+  config,
   resetValidation,
-  toggleButtonState,
 } from "../script/validation.js";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
@@ -94,19 +93,18 @@ function handleAddCardFormSubmit(evt) {
   api
     .editCardsInfo({ name: cardNameInput.value, link: cardLinkInput.value })
     .then(() => {
+      closeModal(cardModal);
       cardsList.prepend(cardElement);
+      evt.target.reset();
+      // window.location.reload();
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(submitbtn, false, "Save", "Saving...");
-      closeModal(cardModal);
-      evt.target.reset();
-      window.location.reload();
     });
 }
 
 function handleAvatarFormSubmit(evt) {
-  evt.preventDefault();
   console.log(avatarInput.value);
   const submitbtn = evt.submitter;
   setButtonText(submitbtn, true, "Save", "Saving...");
@@ -116,12 +114,12 @@ function handleAvatarFormSubmit(evt) {
     })
     .then((data) => {
       profileAvatar.src = data.avatar;
+      closeModal(avatarModal);
+      evt.target.reset();
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(submitbtn, false, "Save", "Saving...");
-      closeModal(avatarModal);
-      evt.target.reset();
     });
 }
 
@@ -130,6 +128,7 @@ function handleEditFormSubmit(evt) {
   // change text content to "Saving..."
   const submitbtn = evt.submitter;
   setButtonText(submitbtn, true, "Save", "Saving...");
+
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -143,10 +142,7 @@ function handleEditFormSubmit(evt) {
       closeModal(editModal);
     })
     .catch(console.error)
-    .finally(() =>
-      //call setButtonText
-      setButtonText(submitbtn, false, "Save", "Saving...")
-    );
+    .finally(() => setButtonText(submitbtn, false, "Save", "Saving..."));
 }
 
 let selectedCard, selectedCardId;
@@ -155,6 +151,10 @@ function handleDeleteCard(cardElement, cardId) {
   selectedCardId = cardId;
   console.log(cardId);
   openModal(deleteCardModal);
+  cancelDeleteCardButton.addEventListener("click", () => {
+    closeModal(deleteCardModal);
+    cancelDeleteCardButton.removeEventListener;
+  });
 }
 
 function handleDeleteCardSubmit(evt) {
@@ -165,8 +165,10 @@ function handleDeleteCardSubmit(evt) {
   api
     .deleteCard(selectedCardId)
     .then(() => {
+      cancelDeleteCardButton.removeEventListener;
       closeModal(deleteCardModal);
       selectedCard.remove();
+      evt.target.reset();
     })
     .catch(console.error)
     .finally(() => {
@@ -252,7 +254,7 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, settings);
+  resetValidation(editFormElement, config);
 });
 
 cardModelButton.addEventListener("click", () => {
@@ -277,14 +279,5 @@ avatarForm.addEventListener("submit", handleAvatarFormSubmit);
 
 deleteCardForm.addEventListener("submit", handleDeleteCardSubmit);
 
-cancelDeleteCardButton.addEventListener("click", () => {
-  const cancelbtn = cancelDeleteCardButton;
-  cancelbtn.textContent = "Canceling...";
-  setTimeout(() => {
-    cancelbtn.textContent = "Cancel";
-  }, 1000);
-  closeModal(deleteCardModal);
-});
-
 //validation
-enableValidation(settings);
+enableValidation(config);
