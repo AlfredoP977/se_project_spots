@@ -97,6 +97,7 @@ function handleAvatarFormSubmit(evt) {
       avatar: avatarInput.value,
     })
     .then((data) => {
+      evt.preventDefault();
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
       evt.target.reset();

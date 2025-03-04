@@ -46,7 +46,7 @@
 }
 .modal__content-deleteCard {
   flex-direction: row;
-  max-width: 630px;
+  width: 630px;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 0;
@@ -98,6 +98,7 @@
 .modal__title-deleteCard {
   padding: 32px 20px;
   line-height: 24px;
+  font-size: 24px;
   text-align: center;
   font-weight: 500;
 }
@@ -143,22 +144,31 @@
   border-radius: 8px;
   padding: 0;
   margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 .modal__deleteCard-btn:hover {
   background-color: rgba(255, 51, 51, 1);
-  cursor: pointer;
+  cursor: url("/src/images/cursor_deletebtns.png"), auto;
 }
 .modal__cancelDeleteCard-btn {
-  height: 52px;
-  width: 156px;
+  border: 1px solid #212121;
   border-radius: 8px;
-  padding: 0;
+  height: 52px;
   margin: 0;
+  padding: 0;
+  width: 156px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 .modal__cancelDeleteCard-btn:hover {
   background-color: rgba(33, 33, 33, 1);
   color: #ffffff;
-  cursor: pointer;
+  cursor: url("/src/images/cursor_deletebtns.png"), pointer;
 }
 .modal__label {
   font-family: Poppins, Arial, Helvetica, sans-serif;
@@ -230,6 +240,9 @@
   .modal__content {
     width: 300px;
     align-self: center;
+  }
+  .modal__content-deleteCard {
+    width: 300px;
   }
   .modal__title-deleteCard {
     padding: 12px 12px 8px;

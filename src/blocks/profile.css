@@ -22,6 +22,9 @@
   background: none;
   position: relative;
 }
+.profile__avatar-btn:hover {
+  cursor: url("/src/images/cursor_deletebtns.png"), auto;
+}
 .profile__avatar-btn:hover .profile__avatar-btn-description {
   visibility: visible;
 }
