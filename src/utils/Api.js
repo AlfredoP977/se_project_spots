@@ -11,7 +11,7 @@ class Api {
     if (res.ok) {
       return res.json();
     }
-    Promise.reject(`Error: ${res.status}`);
+    return Promise.reject(`Error: ${res.status}`);
   }
 
   getAppInfo() {
@@ -76,9 +76,6 @@ class Api {
     }).then((res) => this._handleServerRes(res));
   }
   changeLikeStatus(id, isLiked) {
-    console.log(isLiked);
-    console.log(id);
-    console.log(data);
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
