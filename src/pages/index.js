@@ -75,6 +75,7 @@ const previewModalCaptionElement = document.querySelector(".modal__caption");
 function handleAddCardFormSubmit(evt) {
   const submitbtn = evt.submitter;
   setButtonText(submitbtn, true, "Save", "Saving...");
+  evt.preventDefault();
   api
     .editCardsInfo({ name: cardNameInput.value, link: cardLinkInput.value })
     .then((cardData) => {
@@ -91,13 +92,13 @@ function handleAddCardFormSubmit(evt) {
 //Avatar modal
 function handleAvatarFormSubmit(evt) {
   const submitbtn = evt.submitter;
+  evt.preventDefault();
   setButtonText(submitbtn, true, "Save", "Saving...");
   api
     .editAvatarUserInfo({
       avatar: avatarInput.value,
     })
     .then((data) => {
-      evt.preventDefault();
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
       evt.target.reset();
@@ -232,15 +233,17 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, config);
+  resetValidation(editModal, config);
 });
 
 cardModelButton.addEventListener("click", () => {
   openModal(cardModal);
+  resetValidation(cardModal, config);
 });
 
 avatarModelButton.addEventListener("click", () => {
   openModal(avatarModal);
+  resetValidation(avatarForm, config);
 });
 const modalCloseBtns = document.querySelectorAll(".modal__close-btn");
 
