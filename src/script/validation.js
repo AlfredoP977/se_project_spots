@@ -5,14 +5,6 @@ export const config = {
   inactiveButtonClass: "modal__submit-btn_inactive",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
-  savedData: {
-    name: ".profile__name",
-    about: ".profile__description",
-  },
-  userInput: {
-    name: "#profile-name-input",
-    about: "#profile-description-input",
-  },
 };
 //error msg
 const showInputError = (formEl, inputEl, errorMsg, config) => {
@@ -45,14 +37,14 @@ const hasInvalidInput = (inputList) => {
   });
 };
 //check change on edit module
-function checkForChange(config) {
+function checkForChange() {
   const savedData = {
-    name: document.querySelector(config.savedData.name).textContent,
-    about: document.querySelector(config.savedData.about).textContent,
+    name: document.querySelector(".profile__name").textContent,
+    about: document.querySelector(".profile__description").textContent,
   };
   const userInput = {
-    name: document.querySelector(config.userInput.name).value,
-    about: document.querySelector(config.userInput.about).value,
+    name: document.querySelector("#profile-name-input").value,
+    about: document.querySelector("#profile-description-input").value,
   };
   const isEditModalOpened = document
     .querySelector("#edit-profile-modal")
@@ -70,7 +62,7 @@ function checkForChange(config) {
 }
 //toggle button state
 const toggleButtonState = (inputList, buttonEl, config) => {
-  if (hasInvalidInput(inputList) || checkForChange(config)) {
+  if (hasInvalidInput(inputList) || checkForChange()) {
     buttonEl.disabled = true;
     buttonEl.classList.add(config.inactiveButtonClass);
   } else {
