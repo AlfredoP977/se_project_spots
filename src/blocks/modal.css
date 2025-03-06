@@ -238,7 +238,6 @@
 }
 @media screen and (max-width: 740px) {
   .modal__content {
-    width: 300px;
     align-self: center;
   }
   .modal__content-deleteCard {
@@ -250,7 +249,6 @@
   .modal__form {
     display: flex;
     justify-content: center;
-    width: 276px;
     padding: 12px;
   }
   .modal__form-deleteCard {
@@ -266,7 +264,7 @@
     margin-bottom: 0;
   }
   .modal__header {
-    max-width: 276px;
+    max-width: 230px;
     padding: 12px;
   }
   .modal__submit-btn {
