@@ -105,8 +105,6 @@ export const resetValidation = (formEl, config) => {
   inputList.forEach((inputEl) => {
     hideInputError(formEl, inputEl, config);
   });
-  const buttonElement = formEl.querySelector(config.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, config);
 };
 
 export const enableValidation = (config) => {
