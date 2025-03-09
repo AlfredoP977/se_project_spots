@@ -88,9 +88,6 @@ const setEventListeners = (formEl, config) => {
     return; // Ignore forms with only buttons and no input elements
   }
 
-  // checkForChange(config);
-  //check edit modul for if it has two place holder that are the same as current value
-
   toggleButtonState(inputList, buttonElement, config);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {

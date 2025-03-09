@@ -82,7 +82,7 @@ function handleAddCardFormSubmit(evt) {
     .then((cardData) => {
       const cardElement = getCardElement(cardData);
       cardsList.prepend(cardElement);
-      // disbale button
+      // disable button
       disableButton(submitbtn, config);
       console.log(submitbtn, config);
       closeModal(cardModal);
