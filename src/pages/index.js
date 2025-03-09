@@ -81,6 +81,8 @@ function handleAddCardFormSubmit(evt) {
     .then((cardData) => {
       const cardElement = getCardElement(cardData);
       cardsList.prepend(cardElement);
+      // disbale button
+      console.log(submitbtn, config);
       closeModal(cardModal);
       evt.target.reset();
     })
@@ -100,6 +102,8 @@ function handleAvatarFormSubmit(evt) {
     })
     .then((data) => {
       profileAvatar.src = data.avatar;
+      // disable button
+      console.log("closed");
       closeModal(avatarModal);
       evt.target.reset();
     })
@@ -125,6 +129,8 @@ function handleEditFormSubmit(evt) {
       profileName.textContent = data.name;
       profileDescription.textContent = data.about;
       evt.target.reset();
+      // disable button
+      console.log("1");
       closeModal(editModal);
     })
     .catch(console.error)
@@ -203,6 +209,7 @@ function getCardElement(data) {
 }
 
 function openModal(modal) {
+  // resetValidation(modal, config);
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscapeKey);
   modal.addEventListener("click", handleOverlayClick);
@@ -230,20 +237,18 @@ function handleEscapeKey(event) {
 
 //listeners
 profileEditButton.addEventListener("click", () => {
-  openModal(editModal);
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
   resetValidation(editModal, config);
+  openModal(editModal);
 });
 
 cardModelButton.addEventListener("click", () => {
   openModal(cardModal);
-  resetValidation(cardModal, config);
 });
 
 avatarModelButton.addEventListener("click", () => {
   openModal(avatarModal);
-  resetValidation(avatarForm, config);
 });
 const modalCloseBtns = document.querySelectorAll(".modal__close-btn");
 

@@ -239,6 +239,7 @@
 @media screen and (max-width: 740px) {
   .modal__content {
     align-self: center;
+    max-width: 254px;
   }
   .modal__content-deleteCard {
     width: 300px;

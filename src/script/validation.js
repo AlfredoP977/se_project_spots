@@ -5,6 +5,10 @@ export const config = {
   inactiveButtonClass: "modal__submit-btn_inactive",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
+  savedData: {
+    name: ".profile__name",
+    about: ".profile__description",
+  },
 };
 //error msg
 const showInputError = (formEl, inputEl, errorMsg, config) => {
@@ -31,38 +35,37 @@ const checkInputValidity = (formEl, inputEl, config) => {
 
 //looks for invalid input
 const hasInvalidInput = (inputList) => {
-  console.log();
+  console.log("inputList", inputList);
   return inputList.some((inputEl) => {
     return !inputEl.validity.valid;
   });
 };
-//check change on edit module
-function checkForChange() {
-  const savedData = {
-    name: document.querySelector(".profile__name").textContent,
-    about: document.querySelector(".profile__description").textContent,
-  };
-  const userInput = {
-    name: document.querySelector("#profile-name-input").value,
-    about: document.querySelector("#profile-description-input").value,
-  };
-  const isEditModalOpened = document
-    .querySelector("#edit-profile-modal")
-    .classList.contains("modal_opened");
-
-  //if all inputs are the same as the placeholder of the inputs return
-  if (
-    userInput.name === savedData.name &&
-    userInput.about === savedData.about &&
-    isEditModalOpened
-  ) {
-    return true;
-  }
-  return false;
-}
 //toggle button state
 const toggleButtonState = (inputList, buttonEl, config) => {
-  if (hasInvalidInput(inputList) || checkForChange()) {
+  console.log("2");
+  if (buttonEl === null) {
+    return;
+  }
+  function arraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
+  }
+  const textContent = [
+    document.querySelector(config.savedData.name).textContent,
+    document.querySelector(config.savedData.about).textContent,
+  ];
+  const getInputValues = (inputList) => {
+    const values = inputList.map((inputEl) => inputEl.value);
+    return values;
+  };
+  // for the live of me i cant figure out a way to open it and have it disabled
+  if (
+    hasInvalidInput(inputList) ||
+    arraysEqual(getInputValues(inputList), textContent)
+  ) {
     buttonEl.disabled = true;
     buttonEl.classList.add(config.inactiveButtonClass);
   } else {
@@ -80,6 +83,7 @@ const setEventListeners = (formEl, config) => {
   if (inputList.length === 0) {
     return; // Ignore forms with only buttons and no input elements
   }
+
   // checkForChange(config);
   //check edit modul for if it has two place holder that are the same as current value
 
