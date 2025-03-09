@@ -32,6 +32,10 @@ const checkInputValidity = (formEl, inputEl, config) => {
     hideInputError(formEl, inputEl, config);
   }
 };
+export const disableButton = (buttonEl, config) => {
+  buttonEl.disabled = true;
+  buttonEl.classList.add(config.inactiveButtonClass);
+};
 
 //looks for invalid input
 const hasInvalidInput = (inputList) => {

@@ -4,6 +4,7 @@ import {
   enableValidation,
   config,
   resetValidation,
+  disableButton,
 } from "../script/validation.js";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
@@ -82,6 +83,7 @@ function handleAddCardFormSubmit(evt) {
       const cardElement = getCardElement(cardData);
       cardsList.prepend(cardElement);
       // disbale button
+      disableButton(buttonEl, config);
       console.log(submitbtn, config);
       closeModal(cardModal);
       evt.target.reset();
@@ -103,6 +105,7 @@ function handleAvatarFormSubmit(evt) {
     .then((data) => {
       profileAvatar.src = data.avatar;
       // disable button
+      disableButton(buttonEl, config);
       console.log("closed");
       closeModal(avatarModal);
       evt.target.reset();
@@ -130,6 +133,7 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       evt.target.reset();
       // disable button
+      disableButton(buttonEl, config);
       console.log("1");
       closeModal(editModal);
     })
