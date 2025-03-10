@@ -32,6 +32,7 @@ const checkInputValidity = (formEl, inputEl, config) => {
     hideInputError(formEl, inputEl, config);
   }
 };
+// disable button
 export function disableButton(buttonEl, config) {
   buttonEl.disabled = true;
   buttonEl.classList.add(config.inactiveButtonClass);
@@ -46,7 +47,6 @@ const hasInvalidInput = (inputList) => {
 };
 //toggle button state
 const toggleButtonState = (inputList, buttonEl, config) => {
-  console.log("2");
   if (buttonEl === null) {
     return;
   }
@@ -65,7 +65,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
     const values = inputList.map((inputEl) => inputEl.value);
     return values;
   };
-  // for the live of me i cant figure out a way to open it and have it disabled
+
   if (
     hasInvalidInput(inputList) ||
     arraysEqual(getInputValues(inputList), textContent)

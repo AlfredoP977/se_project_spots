@@ -63,7 +63,7 @@
   margin: 0;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1;
+  line-height: 20px;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -76,7 +76,6 @@
 .profile__edit-btn {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1;
   margin-top: auto;
   border-radius: 8px;
   border: none;

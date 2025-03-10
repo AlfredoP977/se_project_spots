@@ -128,7 +128,6 @@ function handleEditFormSubmit(evt) {
       about: editModalDescriptionInput.value,
     })
     .then((data) => {
-      //ToDO use data instead of input values
       profileName.textContent = data.name;
       profileDescription.textContent = data.about;
       evt.target.reset();
