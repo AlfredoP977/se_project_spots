@@ -133,7 +133,6 @@ function handleEditFormSubmit(evt) {
       evt.target.reset();
       // disable button
       disableButton(submitbtn, config);
-      console.log("1");
       closeModal(editModal);
     })
     .catch(console.error)
