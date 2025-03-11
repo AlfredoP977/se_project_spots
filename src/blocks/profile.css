@@ -10,6 +10,36 @@
   height: 190px;
   border-radius: 8px;
 }
+
+.profile__avatar-btn {
+  margin-right: 20px;
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  position: relative;
+}
+.profile__avatar-btn:hover {
+  cursor: url("/src/images/cursor_deletebtns.png"), auto;
+}
+.profile__avatar-btn:hover .profile__avatar-btn-description {
+  visibility: visible;
+}
+.profile__avatar-btn-description {
+  position: absolute;
+  top: 162px;
+  right: 39px;
+  left: 39.66px;
+  bottom: 12px;
+  width: 111.34px;
+  height: 16px;
+  font-weight: 500;
+  color: rgb(255, 255, 255, 1);
+  visibility: hidden;
+}
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -33,7 +63,7 @@
   margin: 0;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1;
+  line-height: 20px;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -46,7 +76,6 @@
 .profile__edit-btn {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1;
   margin-top: auto;
   border-radius: 8px;
   border: none;
@@ -115,6 +144,29 @@
     height: 80px;
     width: 80px;
     margin: 0 0 12px;
+    position: relative;
+  }
+  .profile__avatar-btn {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile__avatar-btn-description {
+    color: transparent;
+    position: absolute;
+    top: 59.44px;
+    left: 50px;
+    bottom: 4.66px;
+  }
+  .profile__avatar-Pencil {
+    position: absolute;
+    background-color: rgb(33, 33, 33, 0.6);
+    border-radius: 6px;
+    border-width: 23.34px;
+  }
+  .profile__avatar-btn :hover .profile__avatar-Pencil {
+    visibility: visible;
   }
   .profile__name {
     font-size: 20px;
